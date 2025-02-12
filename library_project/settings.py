@@ -1,5 +1,8 @@
 import sys
 import os
+
+from django.conf.global_settings import STATICFILES_DIRS
+
 sys.path.append(os.path.join(os.path.dirname(__file__), 'path_to_virtualenv_lib'))
 
 
@@ -18,7 +21,7 @@ SECRET_KEY = 'django-insecure-$2=o4-rz^rs!!!c-99m589(o!)=l75-lv-*$h@%=l#0b)=4$_b
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -133,6 +136,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = 'static/'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
